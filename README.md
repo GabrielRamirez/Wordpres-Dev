@@ -1,6 +1,6 @@
 # Development WordPress Website
 
-This repository contains the configuration files for setting up a development WordPress website using Docker containers. The version of WordPress used is "3".
+This repository contains the configuration files for setting up a development WordPress website using Docker Compose. The WordPress version used is the latest available.
 
 ## Services
 
@@ -48,19 +48,43 @@ The following services are included in this setup:
 
 ## Usage
 
-To set up the development WordPress website using these Docker containers, follow these steps:
+To set up the development WordPress website using these Docker Compose services, follow these steps:
 
 1. Clone this repository to your local machine.
-2. Make sure you have Docker installed.
+
+```shell
+git clone https://github.com/GabrielRamirez/Wordpres-Dev.git
+```
+
+2. Make sure you have Docker and Docker Compose installed on your machine.
+
 3. Open a terminal or command prompt and navigate to the cloned repository.
-4. Run the following command to start the containers:
+
+```shell
+cd Wordpres-Dev
+```
+
+4. Customize the `nginx.conf` file if needed, to customize the Nginx configuration for the website.
+
+5. Start the containers by running the following command:
 
 ```shell
 docker-compose up -d
 ```
 
-5. Wait for the containers to start up. Once they are running, you should be able to access the WordPress site at `http://localhost` and the phpMyAdmin interface at `http://localhost:8080`.
-6. You can modify the `nginx.conf` file to customize the Nginx configuration for the website.
+The `-d` flag runs the containers in detached mode, allowing you to continue using the terminal without blocking.
+
+6. Wait for the containers to start up. This may take a few moments as the required Docker images are pulled.
+
+7. Once the containers are up and running, you can access the WordPress site by opening your web browser and navigating to `http://localhost`. You can access the phpMyAdmin interface at `http://localhost/phpmyadmin/index.php`.
+
+8. To stop the containers and remove them, run the following command:
+
+```shell
+docker-compose down
+```
+
+This will gracefully stop the containers and clean up the resources.
 
 ## License
 
